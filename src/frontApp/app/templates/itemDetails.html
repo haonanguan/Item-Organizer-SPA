@@ -1,0 +1,30 @@
+<h1>Item Details</h1>
+
+<form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="item.name" ng-disabled="!editMode"><br>
+
+    <label for="description">Description:</label>
+    <input type="text" id="description" ng-model="item.description" ng-disabled="!editMode"><br>
+
+    <label for="attr1">Attr1:</label>
+    <input type="text" id="attr1" ng-model="item.attr1" ng-disabled="!editMode"><br>
+
+    <label for="attr2">Attr2:</label>
+    <input type="text" id="attr2" ng-model="item.attr2" ng-disabled="!editMode"><br>
+
+    <label for="attr3">Attr3:</label>
+    <input type="text" id="attr3" ng-model="item.attr3" ng-disabled="!editMode"><br>
+
+    <label for="attr4">Attr4:</label>
+    <input type="text" id="attr4" ng-model="item.attr4" ng-disabled="!editMode"><br>
+
+    <label for="attr5">Attr5:</label>
+    <input type="text" id="attr5" ng-model="item.attr5" ng-disabled="!editMode"><br>
+
+    <button type="button" ng-click="toggleEditMode()" ng-show="!editMode">Edit</button>
+    <button type="button" ng-click="saveItem()" ng-show="editMode">Save</button>
+    <button type="button" ng-click="deleteItem()">Delete</button>
+</form>
+
+<a href="#!/items">Back</a>

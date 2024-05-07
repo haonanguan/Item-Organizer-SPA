@@ -1,0 +1,79 @@
+<h1>Items</h1>
+<div>
+    <div>
+        <button type="button" ng-click="showAddItemModal()">Add Item</button>
+    </div>
+    <div>
+        <div>
+            <label for="sortDropdown">Sort By: </label>
+            <select id="sortDropdown" ng-model="sortAttribute" ng-change="sortBy(sortAttribute)">
+                <option value="name">Name</option>
+                <option value="attr1">Attr1</option>
+                <option value="attr2">Attr2</option>
+                <option value="attr3">Attr3</option>
+                <option value="attr4">Attr4</option>
+                <option value="attr5">Attr5</option>
+            </select>
+
+            <button type="button" ng-click="toggleOrder()">
+                Sort: {{ sortReverse ? 'Descending' : 'Ascending' }}
+            </button>
+        </div>
+    </div>
+</div>
+
+<div ng-if="showModal">
+    <div class="modal-background" ng-click="closeModal()"></div>
+    <div class="modal-content">
+        <form ng-submit="addItem()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" ng-model="newItem.name" required><br>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" ng-model="newItem.description"><br>
+
+            <label for="attr1">Attr1:</label>
+            <input type="text" id="attr1" ng-model="newItem.attr1"><br>
+
+            <label for="attr2">Attr2:</label>
+            <input type="text" id="attr2" ng-model="newItem.attr2"><br>
+
+            <label for="attr3">Attr3:</label>
+            <input type="text" id="attr3" ng-model="newItem.attr3"><br>
+
+            <label for="attr4">Attr4:</label>
+            <input type="text" id="attr4" ng-model="newItem.attr4"><br>
+
+            <label for="attr5">Attr5:</label>
+            <input type="text" id="attr5" ng-model="newItem.attr5"><br>
+
+            <button type="submit">Submit</button>
+            <button type="button" ng-click="closeModal()">Cancel</button>
+        </form>
+    </div>
+</div>
+<div class="item-grid">
+    <div class="item-card" ng-repeat="item in items | orderBy:sortAttribute:sortReverse">
+        <a href="#!/items/{{ item.id }}">{{ item.name }}</a>
+    </div>
+</div>
+
+<style>
+    .item-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* .item-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .item-card a {
+        text-decoration: none;
+        color: #007bff;
+    } */
+</style>
